@@ -1,0 +1,8 @@
+HTML:
+php<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Image Slider</title> <link rel="stylesheet" href="styles.css"> </head> <body> <div class="slider"> <img src="image1.jpg" alt="Image 1"> <button class="prev">Назад</button> <button class="next">Вперед</button> <p class="counter"></p> </div> <script src="script.js"></script> </body> </html> 
+CSS (styles.css):
+Css
+body { font-family: Arial, sans-serif; } .slider { max-width: 500px; margin: 0 auto; text-align: center; border: 1px solid #ddd; padding: 10px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); } img { max-width: 100%; height: auto; margin-bottom: 10px; } button { padding: 5px 10px; background-color: #007bff; color: #fff; border: none; cursor: pointer; } button:hover { background-color: #0056b3; } .counter { font-size: 14px; } 
+JavaScript (script.js):
+javascriptconst images = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg']; let currentImage = 0; const prevBtn = document.querySelector('.prev'); const nextBtn = document.querySelector('.next'); const counter = document.querySelector('.counter'); function showImage() { const img = document.querySelector('img'); img.src = images[currentImage]; counter.textContent = `Изображение ${currentImage + 1} из ${images.length}`; } prevBtn.addEventListener('click', () => { currentImage = currentImage === 0 ? images.length - 1 : currentImage - 1; showImage(); }); nextBtn.addEventListener('click', () => { currentImage = currentImage === images.length - 1 ? 0 : currentImage + 1; showImage(); }); showImage();
+
