@@ -22,7 +22,7 @@ def format_birthday(bd):
 birthday = input("Введите дату вашего рождения (дд мм гггг): ")
 
 print(f"День недели вашего рождения: {day_of_week(birthday)}")
-year = int(birthday.split()[2])  # Получаем год из даты
+year = int(birthday.split()[2]) 
 print(f"Високосный ли был год вашего рождения: {is_leap_year(year)}")
 print(f"Вам сейчас {calculate_age(birthday)} лет")
 print(f"Дата вашего рождения в формате дд мм гггг: {format_birthday(birthday)}")
