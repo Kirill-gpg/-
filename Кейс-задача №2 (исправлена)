@@ -1,0 +1,28 @@
+import datetime
+
+def day_of_week(bd):
+    days = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
+    return days[datetime.datetime.strptime(bd, '%d %m %Y').weekday()]
+
+def is_leap_year(year):
+    return (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
+
+def calculate_age(bd):
+    today = datetime.date.today()
+    b_date = datetime.datetime.strptime(bd, '%d %m %Y').date()
+    age = today.year - b_date.year
+    if today.month < b_date.month or (today.month == b_date.month and today.day < b_date.day):
+        age -= 1
+    return age
+
+def format_birthday(bd):
+    b_date = datetime.datetime.strptime(bd, '%d %m %Y').date()
+    return b_date.strftime('%d %m %Y')
+
+birthday = input("Введите дату вашего рождения (дд мм гггг): ")
+
+print(f"День недели вашего рождения: {day_of_week(birthday)}")
+year = int(birthday.split()[2])  # Получаем год из даты
+print(f"Високосный ли был год вашего рождения: {is_leap_year(year)}")
+print(f"Вам сейчас {calculate_age(birthday)} лет")
+print(f"Дата вашего рождения в формате дд мм гггг: {format_birthday(birthday)}")
